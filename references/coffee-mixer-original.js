@@ -15,6 +15,7 @@
 
   mixQty = Math.floor(Math.random() * coffees.length) + 1;
 
+
   for (counter = 0; counter < mixQty; counter += 1) {
     var mixIndex = Math.floor(Math.random() * coffees.length);
     var coffee = coffees.splice(mixIndex, 1);
