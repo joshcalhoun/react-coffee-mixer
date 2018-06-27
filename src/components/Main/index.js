@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux';
-import * as coffeeActions from '../../actions/coffeeActions';
+import {saveCoffee} from '../../actions/coffeeActions';
 import Main from './Main'
 import Header from '../common/Header'
 import styled from 'styled-components'
@@ -14,22 +14,24 @@ export class MainWrapper extends Component {
     };
     this.randomize = this.randomize.bind(this);
   }
+
+  randomize() {
+    // const mixQty = Math.floor(Math.random() * items.length) + 1;
+    // let coffeeTotal = 0;
+    // let randomArray = items.map(x => x.amount = Math.floor(Math.random() * 100) + 1);
+    let randomRawArray = this.props.coffees.map(x => ({...x, amount: this.calcRand()}));
+    let sum = randomRawArray.map(x => x.amount).reduce((a, b) => a + b);
+    let normalizedRandom = randomRawArray.map(x => ({...x, amount: this.calcNorm(x.amount, sum)}));
+    for (let coffee of normalizedRandom) {
+      this.props.saveCoffee(coffee);
+    }
+
+  }
   calcRand() {
     return (Math.floor(Math.random() * 100) + 1);
   }
   calcNorm(a, s) {
     return s !== 0 ? ((Math.floor((a / s) * 100)).toFixed(0)) : 0;
-  }
-  randomize(items) {
-    // const mixQty = Math.floor(Math.random() * items.length) + 1;
-    // let coffeeTotal = 0;
-    // let randomArray = items.map(x => x.amount = Math.floor(Math.random() * 100) + 1);
-    let randomRawArray = items.map(x => ({...x, amount: this.calcRand()}));
-    let sum = randomRawArray.map(x => x.amount).reduce((a, b) => a + b);
-    let normalizedRandom = randomRawArray.map(x => ({...x, amount: this.calcNorm(x.amount, sum)}));
-
-    console.log(normalizedRandom);
-    return normalizedRandom;
   }
 
 
@@ -39,7 +41,7 @@ export class MainWrapper extends Component {
     return (
       <Wrapper>
         <Header/>
-        <Main coffees = {this.props.coffees} randomize={this.props.randomize}/>
+        <Main coffees = {this.props.coffees} randomize={this.randomize}/>
       </Wrapper>
     );
   }
@@ -47,17 +49,20 @@ export class MainWrapper extends Component {
 
 
 const mapStateToProps = (state) => {
-  return {coffees : state.coffees};
+  return {
+    coffees : state.coffees};
 };
 
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     actions: bindActionCreators({
-//     }, dispatch)
-//   };
-// }
+function mapDispatchToProps(dispatch) {
+  return {
+    saveCoffee: saveCoffee
+  }
+  // return {
+  //   actions: bindActionCreators({}, dispatch)
+  // };
+}
 const Wrapper = styled.div`
 
   `
 
-export default connect(mapStateToProps)(MainWrapper);
+export default connect(mapStateToProps, mapDispatchToProps())(MainWrapper);
