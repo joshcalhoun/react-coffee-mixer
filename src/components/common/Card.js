@@ -2,16 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import styled from 'styled-components'
 
-const Card = ({title}) => {
+const Card = ({title, amount}) => {
   return (
   <StyledCard>
     <h2>{title}</h2>
+    <p>{amount}</p>
   </StyledCard>
   );
 };
 
 Card.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  amount: PropTypes.string
+
 };
 
 export default Card;

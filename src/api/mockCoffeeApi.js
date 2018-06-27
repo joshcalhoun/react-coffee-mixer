@@ -3,32 +3,32 @@ const coffees = [
   {
     "id": "veranda",
     "name": "Veranda",
-    "amount": 0
+    "amount": '0'
   },
   {
     "id": "frenchRoast",
     "name": "French Roast",
-    "amount": 0
+    "amount": '0'
   },
   {
     "id": "sumatra",
     "name": "Sumatra",
-    "amount": 0
+    "amount": '0'
   },
   {
     "id": "pikesPlace",
     "name": "Pikes Place",
-    "amount": 0
+    "amount": '0'
   },
   {
     "id": "casiCielo",
     "name": "Casi Cielo",
-    "amount": 0
+    "amount": '0'
   },
   {
     "id": "espresso",
     "name": "Espresso",
-    "amount": 0
+    "amount": '0'
   }
 ];
 
@@ -47,7 +47,7 @@ class CoffeeApi {
       setTimeout(() => {
         // Simulate server-side validation
         const minCoffeeTitleLength = 1;
-        if (coffee.title.length < minCoffeeTitleLength) {
+        if (coffee.name.length < minCoffeeTitleLength) {
           reject(`Title must be at least ${minCoffeeTitleLength} characters.`);
         }
 

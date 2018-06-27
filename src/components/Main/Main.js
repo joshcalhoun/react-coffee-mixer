@@ -12,11 +12,11 @@ const Main = ({coffees, randomize}) => {
     <Wrapper>
       <h2>Home</h2>
       <p>Here are your list of coffees.</p>
-      {/*<div>*/}
-        {/*{coffees && coffees.length &&*/}
-          {/*coffees.map((coffee, i) => <Card key={i} title={coffee.name}></Card>)*/}
-        {/*}*/}
-      {/*</div>*/}
+      <div>
+        {coffees && coffees.length &&
+          coffees.map((coffee, i) => <Card key={i} title={coffee.name} amount={coffee.amount}></Card>)
+        }
+      </div>
       <Button onClick={randomize}>Randomize</Button>
 
     </Wrapper>
