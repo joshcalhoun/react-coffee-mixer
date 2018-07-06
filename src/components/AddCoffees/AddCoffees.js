@@ -1,11 +1,22 @@
 import React, {PropTypes} from 'react';
 import styled from 'styled-components'
 import Header from '../common/Header'
-const AddCoffees = ({}) => {
+import Card from '../common/Card'
+const AddCoffees = ({coffees}) => {
   return (
     <Wrapper>
       <Header />
-      <h2>Hello</h2>
+      <h2>Update Coffee Details Here</h2>
+      <div>
+        {coffees && coffees.length &&
+        coffees.map((coffee, i) =>
+          <Card key={i} >
+            <h2>{coffee.name}</h2>
+            <p>{coffee.amount}</p>
+
+          </Card>)
+        }
+      </div>
     </Wrapper>
   );
 };

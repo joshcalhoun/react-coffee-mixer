@@ -13,20 +13,26 @@ export class MainWrapper extends Component {
       coffees: [],
     };
     this.randomize = this.randomize.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   randomize() {
-    // const mixQty = Math.floor(Math.random() * items.length) + 1;
-    // let coffeeTotal = 0;
-    // let randomArray = items.map(x => x.amount = Math.floor(Math.random() * 100) + 1);
+
     let randomRawArray = this.props.coffees.map(x => ({...x, amount: this.calcRand()}));
     let sum = randomRawArray.map(x => x.amount).reduce((a, b) => a + b);
     let normalizedRandom = randomRawArray.map(x => ({...x, amount: this.calcNorm(x.amount, sum)}));
-    for (let coffee of normalizedRandom) {
-      this.props.saveCoffee(coffee);
-    }
+    normalizedRandom.forEach(coffee => this.props.saveCoffee(coffee));
+    // for (let coffee of normalizedRandom) {
+    //   this.props.saveCoffee(coffee);
+    // }
 
   }
+
+  reset() {
+
+    this.props.coffees.map(x => ({...x, amount: 0})).forEach(coffee => this.props.saveCoffee(coffee));
+  }
+
   calcRand() {
     return (Math.floor(Math.random() * 100) + 1);
   }
@@ -41,7 +47,7 @@ export class MainWrapper extends Component {
     return (
       <Wrapper>
         <Header/>
-        <Main coffees = {this.props.coffees} randomize={this.randomize}/>
+        <Main coffees = {this.props.coffees} randomize={this.randomize} reset={this.reset}/>
       </Wrapper>
     );
   }

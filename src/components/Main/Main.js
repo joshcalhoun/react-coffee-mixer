@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import styled from "styled-components";
 import Card from "../common/Card"
 
-const Main = ({coffees, randomize}) => {
+const Main = ({coffees, randomize, reset}) => {
 
   return (
     <Wrapper>
@@ -14,10 +14,14 @@ const Main = ({coffees, randomize}) => {
       <p>Here are your list of coffees.</p>
       <div>
         {coffees && coffees.length &&
-          coffees.map((coffee, i) => <Card key={i} title={coffee.name} amount={coffee.amount}></Card>)
+          coffees.map((coffee, i) => <Card key={i} >
+            <h2>{coffee.name}</h2>
+            <p>{coffee.amount}</p>
+          </Card>)
         }
       </div>
       <Button onClick={randomize}>Randomize</Button>
+      <Button onClick={reset}>Reset</Button>
 
     </Wrapper>
 

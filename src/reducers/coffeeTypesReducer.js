@@ -12,6 +12,7 @@ export default function coffeeTypesReducer(state = initialState.coffees, action)
         Object.assign({}, action.coffee)
       ];
     case types.UPDATE_COFFEE_SUCCESS:
+      console.log(...state);
       return [
         ...state.filter(coffee => coffee.id !== action.coffee.id),
         Object.assign({}, action.coffee)

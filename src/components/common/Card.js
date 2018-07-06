@@ -2,20 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import styled from 'styled-components'
 
-const Card = ({title, amount}) => {
+const Card = ({children}) => {
   return (
   <StyledCard>
-    <h2>{title}</h2>
-    <p>{amount}</p>
+    {children}
   </StyledCard>
   );
 };
 
-Card.propTypes = {
-  title: PropTypes.string.isRequired,
-  amount: PropTypes.string
-
-};
+// Card.propTypes = {
+//   title: PropTypes.string.isRequired,
+//   amount: PropTypes.string
+//
+// };
 
 export default Card;
 
@@ -23,7 +22,6 @@ const StyledCard = styled.div`
   background: #fff;
   border-radius: 2px;
   display: inline-block;
-  height: 300px;
   margin: 1rem;
   position: relative;
   width: 300px;
