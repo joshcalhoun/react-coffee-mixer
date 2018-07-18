@@ -1,27 +1,16 @@
 import React, {PropTypes} from 'react';
 import styled from 'styled-components'
-import Header from '../common/Header'
-import Card from '../common/Card'
-const AddCoffees = ({coffees}) => {
+import AddCoffeeForm from './components/AddCoffeeForm'
+
+const AddCoffees = (props) => {
   return (
     <Wrapper>
-      <Header />
-      <h2>Update Coffee Details Here</h2>
-      <div>
-        {coffees && coffees.length &&
-        coffees.map((coffee, i) =>
-          <Card key={i} >
-            <h2>{coffee.name}</h2>
-            <p>{coffee.amount}</p>
-
-          </Card>)
-        }
-      </div>
+      <h2>Add a new Coffee Flavor :)</h2>
+      <AddCoffeeForm formElements={props.formElements} />
     </Wrapper>
   );
 };
 
-AddCoffees.propTypes = {};
 
 export default AddCoffees;
 

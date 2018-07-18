@@ -3,5 +3,7 @@ export default {
   user: {
     name: '',
     email: ''
-  }
+  },
+  roasts: [],
+  coffeeMix: []
 };

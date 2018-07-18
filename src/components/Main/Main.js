@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import styled from "styled-components";
@@ -14,13 +13,10 @@ const Main = ({coffees, randomize, reset}) => {
       <p>Here are your list of coffees.</p>
       <div>
         {coffees && coffees.length &&
-          coffees.map((coffee, i) => <Card key={i} >
-            <h2>{coffee.name}</h2>
-            <p>{coffee.amount}</p>
-          </Card>)
+          coffees.map((coffee, i) => <Card key={i} coffee={coffee}></Card>)
         }
       </div>
-      <Button onClick={randomize}>Randomize</Button>
+      <Button onClick={randomize}>Shake it up!</Button>
       <Button onClick={reset}>Reset</Button>
 
     </Wrapper>
@@ -57,6 +53,7 @@ const Button = styled.a`
   transition-delay: 0.2s;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   text-align:center;
+  cursor: pointer;
 `
 
 export default Main;

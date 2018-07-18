@@ -17,7 +17,8 @@ export class MainWrapper extends Component {
     this.state = {
       coffees: [],
       user: {
-        name: ""
+        name: "",
+        email: ""
       }
     }
     ;
@@ -79,9 +80,6 @@ function mapDispatchToProps(dispatch) {
     saveUser: saveUser
 
   }
-  // return {
-  //   actions: bindActionCreators({}, dispatch)
-  // };
 }
 const Wrapper = styled.div`
 

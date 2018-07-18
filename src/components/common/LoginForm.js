@@ -1,7 +1,7 @@
 import React from 'react';
 import {Field, reduxForm } from 'redux-form';
 import styled from 'styled-components';
-import Button from '../common/Button'
+import { Button } from '../common/Button'
 
 let LoginForm = props => {
   const {handleSubmit} = props

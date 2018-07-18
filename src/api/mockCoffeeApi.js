@@ -3,32 +3,37 @@ const coffees = [
   {
     "id": "veranda",
     "name": "Veranda",
-    "amount": '0'
+    "roast": "blonde",
+    "amount": 12
   },
   {
     "id": "frenchRoast",
     "name": "French Roast",
-    "amount": '0'
+    "roast": "dark",
+    "amount": 8
   },
   {
     "id": "sumatra",
     "name": "Sumatra",
-    "amount": '0'
+    "roast": "dark",
+    "amount": 4
   },
   {
     "id": "pikesPlace",
     "name": "Pikes Place",
-    "amount": '0'
+    "roast": "medium",
+    "amount": 6
   },
   {
     "id": "casiCielo",
     "name": "Casi Cielo",
-    "amount": '0'
+    "amount": 0
   },
   {
     "id": "espresso",
     "name": "Espresso",
-    "amount": '0'
+    "roast": "espresso",
+    "amount": 2
   }
 ];
 
@@ -48,7 +53,7 @@ class CoffeeApi {
         // Simulate server-side validation
         const minCoffeeTitleLength = 1;
         if (coffee.name.length < minCoffeeTitleLength) {
-          reject(`Title must be at least ${minCoffeeTitleLength} characters.`);
+          reject(`Name must be at least ${minCoffeeTitleLength} characters.`);
         }
 
         if (coffee.id) {
@@ -60,6 +65,7 @@ class CoffeeApi {
           //Cloning so copy returned is passed by value rather than by reference.
           // coffee.id = generateId(coffee);
           // coffee.watchHref = `http://www.pluralsight.com/coffees/${coffee.id}`;
+          coffee.id = coffee.name.replace(/ /g, '').toLowerCase();
           coffees.push(coffee);
         }
 
