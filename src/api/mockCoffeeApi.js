@@ -3,32 +3,38 @@ const coffees = [
   {
     "id": "veranda",
     "name": "Veranda",
-    "amount": '0'
+    "amount": '0',
+      "appearance": "#331900"
   },
   {
     "id": "frenchRoast",
     "name": "French Roast",
-    "amount": '0'
+    "amount": '0',
+      "appearance": "#38190d"
   },
   {
     "id": "sumatra",
     "name": "Sumatra",
-    "amount": '0'
+    "amount": '0',
+      "appearance": "#43150d"
   },
   {
     "id": "pikesPlace",
     "name": "Pikes Place",
-    "amount": '0'
+    "amount": '0',
+      "appearance": "#351511"
   },
   {
     "id": "casiCielo",
     "name": "Casi Cielo",
-    "amount": '0'
+    "amount": '0',
+      "appearance": "#461c0d"
   },
   {
     "id": "espresso",
     "name": "Espresso",
-    "amount": '0'
+    "amount": '0',
+      "appearance": "#2e1212"
   }
 ];
 

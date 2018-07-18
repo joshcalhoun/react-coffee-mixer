@@ -14,7 +14,7 @@ const Main = ({coffees, randomize}) => {
       <p>Here are your list of coffees.</p>
       <div>
         {coffees && coffees.length &&
-          coffees.map((coffee, i) => <Card key={i} title={coffee.name} amount={coffee.amount}></Card>)
+          coffees.map((coffee, i) => <Card key={i} title={coffee.name} amount={coffee.amount} appearance={coffee.appearance}></Card>)
         }
       </div>
       <Button onClick={randomize}>Randomize</Button>
