@@ -17,14 +17,13 @@ export class MainWrapper extends Component {
   }
 
   randomize() {
-
-    let randomRawArray = this.props.coffees.map(x => ({...x, amount: this.calcRand()}));
+    this.reset();
+    let randomCoffees = this.props.coffees.slice().sort(() => .5 - Math.random()).slice(0, Math.floor(Math.random() * this.props.coffees.length + 1));
+    let randomRawArray = randomCoffees.map(x => ({...x, amount: this.calcRand()}));
     let sum = randomRawArray.map(x => x.amount).reduce((a, b) => a + b);
     let normalizedRandom = randomRawArray.map(x => ({...x, amount: this.calcNorm(x.amount, sum)}));
     normalizedRandom.forEach(coffee => this.props.saveCoffee(coffee));
-    // for (let coffee of normalizedRandom) {
-    //   this.props.saveCoffee(coffee);
-    // }
+
 
   }
 

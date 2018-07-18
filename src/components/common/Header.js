@@ -6,6 +6,7 @@ const Header = ({}) => {
     <Container>
       <HeaderLink to={'/'}>Home</HeaderLink>
       <HeaderLink to={'/addCoffees'}>Add Coffees</HeaderLink>
+      <HeaderLink to={'/rate'}>Rate</HeaderLink>
     </Container>
   );
 };

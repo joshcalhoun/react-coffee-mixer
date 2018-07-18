@@ -39,7 +39,6 @@ export function loadCoffees() {
 }
 
 export function saveCoffee(coffee) {
-  console.log(coffee);
   return function(dispatch) {
     let updates = {};
     updates[coffee.id] = coffee;

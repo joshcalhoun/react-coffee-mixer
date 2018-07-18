@@ -1,3 +1,7 @@
 export default {
-  coffees: []
+  coffees: [],
+  user: {
+    name: '',
+    email: ''
+  }
 };

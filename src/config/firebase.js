@@ -9,3 +9,5 @@ const config = { /* COPY THE ACTUAL CONFIG FROM FIREBASE CONSOLE */
 };
 const fire = firebase.initializeApp(config);
 export default fire;
+export const auth = fire.auth();
+export const doSignInWithEmailAndPassword = (email, password) =>  auth.signInWithEmailAndPassword(email, password);
