@@ -14,10 +14,10 @@ const Main = ({coffees, randomize}) => {
       <p>Here are your list of coffees.</p>
       <div>
         {coffees && coffees.length &&
-          coffees.map((coffee, i) => <Card key={i} title={coffee.name} amount={coffee.amount}></Card>)
+          coffees.map((coffee, i) => <Card key={i} coffee={coffee}></Card>)
         }
       </div>
-      <Button onClick={randomize}>Randomize</Button>
+      <Button onClick={randomize}>Shake it up!</Button>
 
     </Wrapper>
 
@@ -53,6 +53,7 @@ const Button = styled.a`
   transition-delay: 0.2s;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   text-align:center;
+  cursor: pointer;
 `
 
 export default Main;

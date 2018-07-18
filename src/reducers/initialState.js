@@ -1,3 +1,5 @@
 export default {
-  coffees: []
+  coffees: [],
+  roasts: [],
+  coffeeMix: []
 };

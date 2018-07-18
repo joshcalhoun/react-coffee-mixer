@@ -1,16 +1,16 @@
 import React, {PropTypes} from 'react';
 import styled from 'styled-components'
-import Header from '../common/Header'
-const AddCoffees = ({}) => {
+import AddCoffeeForm from './components/AddCoffeeForm'
+
+const AddCoffees = (props) => {
   return (
     <Wrapper>
-      <Header />
-      <h2>Hello</h2>
+      <h2>Add a new Coffee Flavor :)</h2>
+      <AddCoffeeForm formElements={props.formElements} />
     </Wrapper>
   );
 };
 
-AddCoffees.propTypes = {};
 
 export default AddCoffees;
 

@@ -4,12 +4,17 @@ import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux';
 import * as coffeeActions from '../../actions/coffeeActions';
 import AddCoffees from './AddCoffees'
+import Header from '../common/Header'
+import styled from 'styled-components'
 
-
+import form from './components/form'
 class MainWrapper extends Component {
   render() {
     return (
-      <AddCoffees/>
+      <Wrapper>
+        <Header />
+        <AddCoffees formElements={form}/>
+      </Wrapper>
     );
   }
 }
@@ -23,5 +28,10 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(coffeeActions, dispatch)
   };
 }
+
+const Wrapper = styled.div`
+
+  `
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainWrapper);
