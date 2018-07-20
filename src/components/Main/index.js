@@ -34,7 +34,7 @@ export class MainWrapper extends Component {
     let sum = randomRawArray.map(x => x.percent).reduce((a, b) => a + b);
     let normalizedRandom = randomRawArray.map(x => ({...x, percent: this.calcNorm(x.percent, sum)}));
     this.props.setCoffeeMix(normalizedRandom);
-    this.props.showModal('EDIT_COFFEE_MODAL', {coffee: this.props.coffees[0]});
+    this.props.showModal('MIX_RESULTS_MODAL', {coffee: this.props.coffees[0]});
     return normalizedRandom;
   }
 
