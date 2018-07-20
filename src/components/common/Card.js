@@ -2,15 +2,36 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {Button} from './Button'
+import { show, hide } from 'redux-modal'
+import {bindActionCreators} from "redux";
+import {saveCoffee} from "../../actions/coffeeActions";
+import {setSelectedCoffee} from "../../actions/selectCoffeeActions";
+import {connect} from "react-redux";
 
 export class Card extends React.Component {
   constructor(props, context) {
     super(props, context);
+    this.state = {
+      coffee: {},
+      selectedCoffee: {
+        name: '',
+        amount: 0,
+      }
+    }
+
     this.handleEditClick = this.handleEditClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
+  }
+
+  handleSubmit = values => {
+    this.props.saveCoffee(values)
   }
 
   handleEditClick() {
-    console.log('edit me!', this.props.coffee)
+    this.props.setSelectedCoffee(this.props.coffee);
+    console.log('edit me!', this.props.coffee, this.props.selectedCoffee)
+    this.props.showModal('EDIT_COFFEE_MODAL', { handleSubmit: this.handleSubmit, coffee: this.props.coffee });
   }
 
   render() {
@@ -25,13 +46,28 @@ export class Card extends React.Component {
       </StyledCard>
     );
   }
-};
+}
 
 Card.propTypes = {
-  coffee: PropTypes.object.isRequired
+  selectedCoffee: PropTypes.object.isRequired
 };
 
-export default Card;
+const mapStateToProps = (state) => {
+  return {
+    selectedCoffee : state.selectedCoffee
+  };
+};
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    saveCoffee,
+    setSelectedCoffee,
+    showModal: show
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
+
 
 const StyledCard = styled.div`
   background: #fff;

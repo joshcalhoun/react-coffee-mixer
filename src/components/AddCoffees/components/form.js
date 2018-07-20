@@ -14,11 +14,11 @@ export default {
   amount: {
     name: AMOUNT,
     type: 'number',
-    label: 'Amount'
+    label: 'Amount',
   },
   roast: {
     name: ROAST,
     type: 'select',
-    label: 'Select Roast'
+    label: 'Select Roast',
   }
 }

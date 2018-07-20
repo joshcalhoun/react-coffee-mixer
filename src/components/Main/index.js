@@ -34,10 +34,9 @@ export class MainWrapper extends Component {
     let sum = randomRawArray.map(x => x.percent).reduce((a, b) => a + b);
     let normalizedRandom = randomRawArray.map(x => ({...x, percent: this.calcNorm(x.percent, sum)}));
     this.props.setCoffeeMix(normalizedRandom);
-    this.props.showModal('MIX_RESULTS_MODAL');
+    this.props.showModal('EDIT_COFFEE_MODAL', {coffee: this.props.coffees[0]});
     return normalizedRandom;
   }
-
 
 
 
@@ -46,9 +45,9 @@ export class MainWrapper extends Component {
       <React.Fragment>
         <Wrapper>
           <Header/>
-          <Main coffees={this.props.coffees} randomize={this.randomize} reset={this.reset}/>
+          <Main coffees={this.props.coffees} randomize={this.randomize} reset={this.reset} />
         </Wrapper>
-        <Modals></Modals>
+        <Modals/>
       </React.Fragment>
     );
   }

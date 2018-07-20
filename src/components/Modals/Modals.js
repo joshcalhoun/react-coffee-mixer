@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react'
 import MixResultsModal from './MixResultsModal'
+import EditCoffeeModal from './EditCoffeeModal'
 
 const Modals = () =>
   <Fragment>
-    <MixResultsModal></MixResultsModal>
+    <EditCoffeeModal/>
+    <MixResultsModal/>
   </Fragment>
 
 export default Modals
