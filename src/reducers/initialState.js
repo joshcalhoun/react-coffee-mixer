@@ -5,7 +5,11 @@ export default {
     email: ''
   },
   roasts: [],
-  coffeeMix: [],
+  coffeeMix: {
+    current: [],
+    all: []
+  },
+
   selectedCoffee: {
     name: '',
     id: '',
